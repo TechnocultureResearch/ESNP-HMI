@@ -1,0 +1,9 @@
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/Onboarding.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/Onboarding_autogen_timestamp_deps.dir
+D:/QML_Internship/ESNP-HMI/build-Onboarding-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/Onboarding_autogen.dir
