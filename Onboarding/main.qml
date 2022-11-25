@@ -8,6 +8,7 @@ ApplicationWindow {
     Rectangle{
         id:r1
         anchors.fill: parent
+        opacity: 0
 //        ListView {
 //            anchors.fill: parent;
 //            model: Qt.fontFamilies()
@@ -21,52 +22,34 @@ ApplicationWindow {
 //                }
 //            }
 //        }
-Rectangle{
-    border.width: 0
-    width: 560
-    height: 240
-    Text {
-        id: t1
-        text: "ADCY8"
-        font.pixelSize: 100
-        font.family: "Calibri Light"
-        x:80
-        y:55.5
-        font.weight: Font.Thin
-    }
-
-    TextField {
-        id: t2
-        text: "Absolute Pitch"
-        font.family: "Helvetica"
-        font.pixelSize: 100
-        x:68
-        y: 158.5
-        wrapMode: Text.WordWrap
-        background: Rectangle{
-            anchors.fill: parent
+        Rectangle{
             border.width: 0
-        }
-    }
-}
-//        Text {
-//            id: t1
-//            text: "ADCY8"
-//            font.pixelSize: 100
-//            font.family: "Helvetica"
-//            x:80
-//            y:59.5
-//        }
+            width: 560
+            height: 240
+            Text {
+                id: t1
+                text: "ADCY8"
+                font.pixelSize: 100
+                font.family: "Calibri Light"
+                x:80
+                y:55.5
+                font.weight: Font.Thin
+            }
 
-//        Text {
-//            id: t2
-//            text: "Absolute Pitch"
-//            font.family: "Helvetica"
-//            font.pixelSize: 100
-//            x:80
-//            y: 178.5
-////            fontSizeMode: Text.Fit
-//        }
+            TextField {
+                id: t2
+                text: "Absolute Pitch"
+                font.family: "Helvetica"
+                font.pixelSize: 100
+                x:68
+                y: 158.5
+                wrapMode: Text.WordWrap
+                background: Rectangle{
+                    anchors.fill: parent
+                    border.width: 0
+                }
+            }
+        }
 
         Text {
             id: t3
@@ -97,11 +80,6 @@ tone"
             }
             x: 428
             y: 560
-//            Rectangle{
-//                icon.name: "Arrow"
-//                icon.source: "/Users/Public/Downloads/Vector.png"
-//            }
-//            icon.source:"Vector.png"
             background:  Rectangle{
                 border.color: "#0B9821"
                 border.width: 1
@@ -132,7 +110,101 @@ tone"
                 name: "s1"
                 when: mouseArea.pressed===true
                 PropertyChanges {
-                    target: t3
+                    target: r1
+                    opacity:0
+                }
+            }
+            transitions: [
+                Transition {
+                    from: ""
+                    to: "s1"
+                    reversible: true
+                }
+            ]
+        }
+    }
+    Rectangle{
+        id:r2
+        visible: true
+        opacity:1
+        Text {
+            id: t4
+            text: "ADCY8"
+            font.pixelSize: 100
+            font.family: "Calibri Light"
+            x:80
+            y:55.5
+            font.weight: Font.Thin
+        }
+        Text {
+            id: t5
+            text: "This test will take"
+            width: 559
+            height: 48
+            y:432
+            x:81
+            font.pixelSize: 40
+            font.family: "Calibri Light"
+            font.weight: Font.Thin
+        }
+        Text {
+            id: t6
+            text: "30 minutes"
+            width: 559
+            height: 48
+            y:480
+            x:81
+            font.pixelSize: 40
+            font.family: "Calibri Light"
+            font.weight: Font.Medium
+            color: "#0B9821"
+        }
+        Button{
+            id:but2
+            width: 559
+            height: 80
+            Text{
+                text: "Start the test"
+                font.pixelSize: 40
+                x:136.5
+                y: 16
+                color: "#0B9821"
+            }
+            x: 80
+            y: 560
+            background:  Rectangle{
+                border.color: "#61F479"
+                border.width: 1
+                radius: 20
+                gradient: Gradient{
+                    GradientStop{
+                        position: 0
+                        color: "#C2FFCD"
+                    }
+                    GradientStop{
+                        position: 1
+                        color: "#AFFFBD"
+                    }
+                }
+            }
+
+            Image {
+                id: img2
+                source: "Vector.png"
+                x:386.5
+                y:24
+                width: 32
+                height: 32
+            }
+            MouseArea{
+                id:mouseArea1
+                anchors.fill: parent
+            }
+            states: State {
+                name: "s2"
+                when: mouseArea.pressed===true
+                PropertyChanges {
+                    target: t4
                     color:"green"
                 }
             }
@@ -141,36 +213,8 @@ tone"
                     from: ""
                     to: "s2"
                     reversible: true
-                    ParallelAnimation{
-                        NumberAnimation{duration: 500}
-                    }
                 }
             ]
         }
     }
-//    Rectangle{
-//        id:r2
-//        visible: false
-//        Text {
-//            id: t
-//            text: qsTr("Hello")
-//        }
-//        states: State{
-//            name:"s2"
-//            when: mouseArea.clicked===true
-//            PropertyChanges {
-//                target: r2
-//                visible:true
-//            }
-//        }
-//        transitions: [
-//            Transition {
-//                from: "s2"
-//                to: "s1"
-//                ParallelAnimation{
-//                    NumberAnimation{duration: 500}
-//                }
-//            }
-//        ]
-//    }
 }
