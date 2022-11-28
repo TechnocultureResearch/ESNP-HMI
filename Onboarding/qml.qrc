@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Vector.png</file>
+        <file>Mybutton.qml</file>
+        <file>Vector (1).png</file>
     </qresource>
 </RCC>

@@ -8,11 +8,10 @@ ApplicationWindow {
     Rectangle{
         id:r1
         anchors.fill: parent
-        opacity: 0
+        opacity: 1
 //        ListView {
 //            anchors.fill: parent;
 //            model: Qt.fontFamilies()
-
 //            delegate: Item {
 //                height: 40;
 //                width: ListView.view.width
@@ -66,155 +65,195 @@ tone"
             x:80
             y: 400
         }
+        Item {
+            Mybutton{
+                visible: true
+                id: but
 
-        Button{
-            id:but1
-            width: 222
-            height: 80
-            Text{
-                text: "Start"
-                font.pixelSize: 40
-                x:30
-                y: 16
-                color: "#0B9821"
             }
-            x: 428
-            y: 560
-            background:  Rectangle{
-                border.color: "#0B9821"
-                border.width: 1
-                radius: 20
-                gradient: Gradient{
-                    GradientStop{
-                        position: 0
-                        color: "#C2FFCD"
-                    }
-                    GradientStop{
-                        position: 1
-                        color: "#AFFFBD"
-                    }
-                }
-            }
-
-            Image {
-                id: img1
-                source: "Vector.png"
-                x:150.6
-                y:21.6
-            }
-            MouseArea{
-                id:mouseArea
-                anchors.fill: parent
-            }
-            states: State {
-                name: "s1"
-                when: mouseArea.pressed===true
-                PropertyChanges {
-                    target: r1
-                    opacity:0
-                }
-            }
-            transitions: [
-                Transition {
-                    from: ""
-                    to: "s1"
-                    reversible: true
-                }
-            ]
         }
     }
-    Rectangle{
-        id:r2
-        visible: true
-        opacity:1
-        Text {
-            id: t4
-            text: "ADCY8"
-            font.pixelSize: 100
-            font.family: "Calibri Light"
-            x:80
-            y:55.5
-            font.weight: Font.Thin
-        }
-        Text {
-            id: t5
-            text: "This test will take"
-            width: 559
-            height: 48
-            y:432
-            x:81
-            font.pixelSize: 40
-            font.family: "Calibri Light"
-            font.weight: Font.Thin
-        }
-        Text {
-            id: t6
-            text: "30 minutes"
-            width: 559
-            height: 48
-            y:480
-            x:81
-            font.pixelSize: 40
-            font.family: "Calibri Light"
-            font.weight: Font.Medium
-            color: "#0B9821"
-        }
-        Button{
-            id:but2
-            width: 559
-            height: 80
-            Text{
-                text: "Start the test"
-                font.pixelSize: 40
-                x:136.5
-                y: 16
-                color: "#0B9821"
-            }
-            x: 80
-            y: 560
-            background:  Rectangle{
-                border.color: "#61F479"
-                border.width: 1
-                radius: 20
-                gradient: Gradient{
-                    GradientStop{
-                        position: 0
-                        color: "#C2FFCD"
-                    }
-                    GradientStop{
-                        position: 1
-                        color: "#AFFFBD"
-                    }
-                }
-            }
+//    Rectangle{
+//        id:r2
+//        visible: true
+//        opacity:0
+//        Text {
+//            id: t4
+//            text: "ADCY8"
+//            font.pixelSize: 100
+//            font.family: "Calibri Light"
+//            x:80
+//            y:55.5
+//            font.weight: Font.Thin
+//        }
+//        Text {
+//            id: t5
+//            text: "This test will take"
+//            width: 559
+//            height: 48
+//            y:432
+//            x:81
+//            font.pixelSize: 40
+//            font.family: "Calibri Light"
+//            font.weight: Font.Thin
+//        }
+//        Text {
+//            id: t6
+//            text: "30 minutes"
+//            width: 559
+//            height: 48
+//            y:480
+//            x:81
+//            font.pixelSize: 40
+//            font.family: "Calibri Light"
+//            font.weight: Font.Medium
+//            color: "#0B9821"
+//        }
+//        Button{
+//            id:but2
+//            width: 559
+//            height: 80
+//            Text{
+//                text: "Start the test"
+//                font.pixelSize: 40
+//                x:136.5
+//                y: 16
+//                color: "#0B9821"
+//            }
+//            x: 80
+//            y: 560
+//            background:  Rectangle{
+//                border.color: "#61F479"
+//                border.width: 1
+//                radius: 20
+//                gradient: Gradient{
+//                    GradientStop{
+//                        position: 0
+//                        color: "#C2FFCD"
+//                    }
+//                    GradientStop{
+//                        position: 1
+//                        color: "#AFFFBD"
+//                    }
+//                }
+//            }
 
-            Image {
-                id: img2
-                source: "Vector.png"
-                x:386.5
-                y:24
-                width: 32
-                height: 32
-            }
-            MouseArea{
-                id:mouseArea1
-                anchors.fill: parent
-            }
-            states: State {
-                name: "s2"
-                when: mouseArea.pressed===true
-                PropertyChanges {
-                    target: t4
-                    color:"green"
-                }
-            }
-            transitions: [
-                Transition {
-                    from: ""
-                    to: "s2"
-                    reversible: true
-                }
-            ]
-        }
-    }
+//            Image {
+//                id: img2
+//                source: "Vector.png"
+//                x:386.5
+//                y:24
+//                width: 32
+//                height: 32
+//            }
+//            MouseArea{
+//                id:mouseArea1
+//                anchors.fill: parent
+//            }
+//            states: State {
+//                name: "s2"
+//                when: mouseArea.pressed===true
+//                PropertyChanges {
+//                    target: t4
+//                    color:"green"
+//                }
+//            }
+//            transitions: [
+//                Transition {
+//                    from: ""
+//                    to: "s2"
+//                    reversible: true
+//                }
+//            ]
+//        }
+//    }
+//    Rectangle{
+//        id:r3
+//        opacity: 0
+//        Text {
+//            id: tr3
+//            text: "8%"
+//            font.pixelSize: 200
+//            font.family: "Calibri Light"
+//            font.weight: Font.Thin
+//            lineHeight: 238.67
+//            x:81
+//            y:40
+//        }
+//        Rectangle{
+//            id:rt1
+//            x:80
+//            y:283
+//            width: 559
+//            height: 342
+//            Text {
+//                id: t1r3
+//                text: "Time Pending"
+//                y:97
+//                font.pixelSize: 40
+//                font.family: "Calibri Light"
+//                font.weight: Font.Thin
+//            }
+//            Text {
+//                id: t2r3
+//                text: "23:46:37"
+//                y:145
+//                font.pixelSize: 100
+//                font.family: "Calibri Light"
+//                font.weight: Font.Thin
+//                color: "#0B9821"
+//            }
+//        }
+//        Rectangle{
+//            id:progress
+//            width:559
+//            height: 80
+//            y:560
+//            x:80
+//            border.color: "#61F479"
+//            border.width: 1
+//            radius: 20
+//            gradient: Gradient{
+//                GradientStop{
+//                    position: 0
+//                    color: "#C4FFCE"
+//                }
+//                GradientStop{
+//                    position: 1
+//                    color: "#A8FFB7"
+//                }
+//            }
+
+
+//            layer.effect: OpacityMask {
+//                maskSource: Item {
+//                    width: rect.width
+//                    height: rect.height
+//                    Rectangle {
+//                        anchors.centerIn: parent
+//                        width: rect.adapt ? rect.width : Math.min(rect.width, rect.height)
+//                        height: rect.adapt ? rect.height : width
+//                        radius: 30
+//                    }
+//                }
+//            }
+
+//            Rectangle{
+//                width:95
+//                height: progress.height
+//                border.color: "#61F479"
+//                border.width: 1
+//                gradient: Gradient{
+//                    GradientStop{
+//                        position: 0
+//                        color: "#0B9821"
+//                    }
+//                    GradientStop{
+//                        position: 1
+//                        color: "#1A8502"
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
