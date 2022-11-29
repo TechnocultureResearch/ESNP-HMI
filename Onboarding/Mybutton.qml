@@ -1,46 +1,69 @@
 import QtQuick 2.0
 Item{
+    id:button
+    property int xPoint
+    property int yPoint
+
+    property string buttonText
+    property double buttonTextX
+    property string borderColor
+    property string buttonTextColor
+    property int borderWidth
+    property int borderRadius
+
+    property bool infoVisible:true
+
+    property string backGradient0
+    property string backGradient1
+    property string imageSrc
+    property double imageX
+
+    property int progressOpacity:0
+    property int doneOpacity:0
     Rectangle{
         id:but1
-        width: 222
-        height: 80
-        x: 428
-        y: 560
+        width: parent.width
+        height: parent.height
+        x: parent.xPoint
+        y: parent.yPoint
         Rectangle{
             id: info
+            visible: button.infoVisible
             anchors.verticalCenter: parent.verticalCenter
             Text{
                 id:t1
-                text: "Start"
+                text: button.buttonText
                 font.pixelSize: 40
-                x:30
-                color: "#0B9821"
+                x:button.buttonTextX
+                color: button.buttonTextColor
+                font.family:"Calibri"
                 anchors.verticalCenter: parent.verticalCenter
             }
             Image {
                 id: img1
-                source: "Vector.png"
-                x:150.6
+                source: button.imageSrc
+                x:button.imageX
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
 //        background
-        border.color: "#0B9821"
-        border.width: 1
-        radius: 20
+//        border.color: "#0B9821"
+        border.color: button.borderColor
+        border.width: button.borderWidth
+        radius: button.borderRadius
         gradient: Gradient{
             GradientStop{
                 position: 0
-                color: "#C2FFCD"
+                color: button.backGradient0
             }
             GradientStop{
                 position: 1
-                color: "#AFFFBD"
+                color: button.backGradient1
             }
         }
         Rectangle{
             id:progress
-            opacity: 0
+            opacity: button.progressOpacity
             width:95
             height: 80
             border.color: "#61F479"
@@ -58,49 +81,16 @@ Item{
                 }
             }
         }
-        Rectangle{
-            id:done
-            opacity: 0
-            width:242
-            height: 80
-            Text {
-                id: t2
-                text: "Done"
-                x:40
-                font.family: "Calibri Light"
-                font.pixelSize: 40
-                color: "white"
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Image {
-                id: img2
-                source: "Vector (1).png"
-                x:169.63
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            x:0
-            y:0
-            gradient: Gradient{
-                GradientStop{
-                    position: 0
-                    color: "#0B9821"
-                }
-                GradientStop{
-                    position: 1
-                    color: "#1A8502"
-                }
-            }
-        }
 
         MouseArea{
             id:mouseArea
-            anchors.fill: parent
+            anchors.fill: but1
             onClicked: {
-                if(but1.state=='')
+                if(but1.state==='')
                     but1.state='s1'
-                else if(but1.state=='s1')
+                else if(but1.state==='s1')
                     but1.state='s2'
-                else if(but1.state=='s2')
+                else if(but1.state==='s2')
                     but1.state='s3'
                 else
                     but1.state=''
@@ -110,52 +100,44 @@ Item{
             State {
                 name: "s1"
                 PropertyChanges {
-                    target: but1
+                    target: but
                     width:560
-                    x:80
-                }
-                PropertyChanges {
-                    target: img1
-                    width:32
-                    height:32
-                    x:386.5
-                    y:24
-                }
-                PropertyChanges {
-                    target: t1
-                    text:"Start the test"
-                    x:136.5
+                    xPoint:80
+
+                    imageX: 386.5
+                    buttonText: "Start the test"
+                    buttonTextX: 136.5
                 }
             },
             State {
                 name: "s2"
                 PropertyChanges {
-                    target: info
-                    visible: false
-                }
-                PropertyChanges {
-                    target: but1
+                    target: but
                     width:560
-                    x:80
-                    radius:0
-                }
-                PropertyChanges {
-                    target: progress
+                    xPoint:80
+                    infoVisible:false
+
+                    borderRadius:0
+                    progressOpacity:1
                     opacity:1
                 }
             },
             State {
                 name: "s3"
                 PropertyChanges {
-                    target: but1
+                    target: but
                     width:242
-                    x:80
-                    radius:20
-                }
-                PropertyChanges {
-                    target: done
-                    opacity:1
-                    radius:20
+                    height:80
+                    xPoint:80
+                    borderRadius:20
+
+                    buttonText:"Done"
+                    buttonTextX:40
+                    buttonTextColor: "white"
+                    imageSrc: "Vector (1).png"
+                    imageX: 169.63
+                    backGradient0:"#0B9821"
+                    backGradient1:"#1A8502"
                 }
             }
         ]

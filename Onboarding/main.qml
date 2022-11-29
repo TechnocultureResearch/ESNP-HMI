@@ -65,13 +65,99 @@ tone"
             x:80
             y: 400
         }
-        Item {
             Mybutton{
                 visible: true
                 id: but
+                width: 222
+                height: 80
+                xPoint: 428
+                yPoint: 560
+                buttonText: "Start"
+                borderColor: "#0B9821"
+                borderWidth: 1
+                borderRadius: 20
+                buttonTextColor: "#0B9821"
+                buttonTextX: 30
 
+                backGradient0: "#C2FFCD"
+                backGradient1: "#AFFFBD"
+
+                imageSrc: "Vector.png"
+                imageX: 150.6
+
+//                MouseArea{
+//                    id:mouseArea
+//                    anchors.fill: but1
+//                    onClicked: {
+//                        if(but1.state==='')
+//                            but1.state='s1'
+//                        else if(but1.state==='s1')
+//                            but1.state='s2'
+//                        else if(but1.state==='s2')
+//                            but1.state='s3'
+//                        else
+//                            but1.state=''
+//                    }
+//                }
+//                states: [
+//                    State {
+//                        name: "s1"
+//                        PropertyChanges {
+//                            target: but
+//                            width:560
+//                            xPoint:80
+
+//                            imageX: 386.5
+//                            buttonText: "Start the test"
+//                            buttonTextX: 136.5
+//                        }
+//                    },
+//                    State {
+//                        name: "s2"
+//                        PropertyChanges {
+//                            target: but
+//                            width:560
+//                            xPoint:80
+//                            infoVisible:false
+
+//                            borderRadius:0
+//                            progressOpacity:1
+//                            opacity:1
+//                        }
+//                    },
+//                    State {
+//                        name: "s3"
+//                        PropertyChanges {
+//                            target: but
+//                            width:242
+//                            height:80
+//                            xPoint:80
+//                            borderRadius:20
+
+//                            buttonText:"Done"
+//                            buttonTextX:40
+//                            buttonTextColor: "white"
+//                            imageSrc: "Vector (1).png"
+//                            imageX: 169.63
+//                            backGradient0:"#0B9821"
+//                            backGradient1:"#1A8502"
+//                        }
+//                    }
+//                ]
+//                transitions: [
+//                    Transition {
+//                        from: ""
+//                        to: "s2"
+//                        reversible:true
+//                        NumberAnimation {
+//                            target: but1
+//                            property: "width,x"
+//                            duration: 500
+//                            easing.type: Easing.InOutQuad
+//                        }
+//                    }
+//                ]
             }
-        }
     }
 //    Rectangle{
 //        id:r2
