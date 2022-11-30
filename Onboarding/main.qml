@@ -8,7 +8,6 @@ ApplicationWindow {
     Rectangle{
         id:r1
         anchors.fill: parent
-        opacity: 1
 //        ListView {
 //            anchors.fill: parent;
 //            model: Qt.fontFamilies()
@@ -22,6 +21,7 @@ ApplicationWindow {
 //            }
 //        }
         Rectangle{
+            id:rec1
             border.width: 0
             width: 560
             height: 240
@@ -49,21 +49,185 @@ ApplicationWindow {
                 }
             }
         }
-
+        Text {
+            id: t
+            text: "(noun)"
+            font.family: "Calibri Light"
+            font.pixelSize: 24
+            color:"grey"
+            x:80
+            y: 400
+        }
         Text {
             id: t3
-            text: "(noun)
-It is the ability to
+            text: "It is the ability to
 instantaneously identify
 and label tones with
 their musical note
 names, without the aid
 of an external reference
 tone"
-            font.family: "Helvetica"
+            font.family: "Calibri"
             font.pixelSize: 24
             x:80
-            y: 400
+            y: 432
+        }
+        Rectangle{
+            id:rec2
+            opacity: 0
+            width: 560
+            height: 440
+            border.color:"#61F479"
+            border.width: 1
+            radius:20
+            y:80
+            x:80
+            gradient: Gradient{
+                GradientStop{
+                    position: 0
+                    color: "#C4FFCE"
+                }
+                GradientStop{
+                    position: 1
+                    color: "#A7FFB6"
+                }
+            }
+            Image {
+                id: img
+                source: "Vector (3).png"
+                x:40
+                y:43
+                height: 200.8
+                width: 201.6
+            }
+            Text {
+                id: t4
+                text: "You are a variant A"
+                x:40
+                y:308
+                color:"#099822"
+                font.family: "Calibri Light"
+                font.weight: Font.Thin
+                font.pixelSize: 50
+            }
+            Text {
+                id: t5
+                x:40
+                y:368
+                text: "Learn More"
+                color:"#4A4A4A"
+                font.family: "Calibri"
+                font.pixelSize: 30
+            }
+            Image {
+                id: img1
+                source: "Vector (2).png"
+                x:213.2
+                y:373.2
+                height: 25.6
+                width: 25.6
+            }
+            MouseArea{
+                id: infoarea
+                anchors.fill: img1
+                onClicked: {
+                    if(rec2.state=='')
+                        rec2.state='st1'
+                    else
+                        rec2.state=''
+                }
+            }
+            states: State {
+                name: "st1"
+                PropertyChanges {
+                    target: rec2
+                    x:-520
+                }
+                PropertyChanges {
+                    target: rec3
+                    x:80
+                }
+            }
+        }
+        Rectangle{
+            id:rec3
+            opacity: 0
+            width: 560
+            height: 440
+            border.color:"#61F479"
+            border.width: 1
+            radius:20
+            x:680
+            y:80
+            gradient: Gradient{
+                GradientStop{
+                    position: 0
+                    color: "#C4FFCE"
+                }
+                GradientStop{
+                    position: 1
+                    color: "#A7FFB6"
+                }
+            }
+            Image {
+                id: img2
+                source: "Vector (4).png"
+                x:40.6
+                y:42.93
+                height: 32.17
+                width: 36.8
+            }
+            Rectangle{
+                id:rec4
+                color:"#E0FFE3"
+                anchors.centerIn: parent
+                radius: 20
+                border.width: 1
+                border.color: "#6BF582"
+                height: 262
+                width: 262
+                Image {
+                    id: img3
+                    source: "qr_code_PNG26 1.png"
+                    anchors.centerIn: parent
+                }
+            }
+
+            Image {
+                id: img4
+                source: "Group 1.png"
+                x:149
+                y:350
+                Text {
+                    id: t8
+                    text: "Scan view the report"
+                    anchors.centerIn: parent
+                    color:"white"
+                    font.pixelSize: 30
+                    font.family: "Calibri"
+                }
+            }
+            MouseArea{
+                id: infoarea1
+                anchors.fill: img2
+                onClicked: {
+                    if(rec3.state=='')
+                        rec3.state='st2'
+                    else
+                        rec3.state=''
+                }
+            }
+            states: State {
+                name: "st2"
+                PropertyChanges {
+                    target: rec2
+                    x:80
+                }
+                PropertyChanges {
+                    target: rec3
+                    x:680
+                }
+            }
         }
             Mybutton{
                 visible: true
@@ -84,6 +248,38 @@ tone"
 
                 imageSrc: "Vector.png"
                 imageX: 150.6
+                onWidthChanged: {
+                    t2.opacity=0
+                    t.color="black"
+                    t.text="This test wil take"
+                    t.font.pixelSize=40
+                    t.font.weight=Font.Thin
+                    t.y=432
+                    t3.color="#0B9821"
+                    t3.text="30 minutes"
+                    t3.font.pixelSize=40
+                    t3.y=480
+                }
+                onInfoVisibleChanged: {
+                    t1.text="8%"
+                    t1.font.pixelSize=200
+                    t1.font.family="Calibri Light"
+                    t1.y=40
+                    t.text="Time Pending"
+                    t.y=380
+                    t3.text="23:46:37"
+                    t3.y=428
+                    t3.font.pixelSize=100
+                    t3.font.family="Calibri Light"
+                    t3.font.letterSpacing=8
+                }
+                onImageSrcChanged: {
+                    rec1.opacity=0
+                    t.opacity=0
+                    t3.opacity=0
+                    rec2.opacity=1
+                    rec3.opacity=1
+                }
 
 //                MouseArea{
 //                    id:mouseArea
@@ -159,187 +355,5 @@ tone"
 //                ]
             }
     }
-//    Rectangle{
-//        id:r2
-//        visible: true
-//        opacity:0
-//        Text {
-//            id: t4
-//            text: "ADCY8"
-//            font.pixelSize: 100
-//            font.family: "Calibri Light"
-//            x:80
-//            y:55.5
-//            font.weight: Font.Thin
-//        }
-//        Text {
-//            id: t5
-//            text: "This test will take"
-//            width: 559
-//            height: 48
-//            y:432
-//            x:81
-//            font.pixelSize: 40
-//            font.family: "Calibri Light"
-//            font.weight: Font.Thin
-//        }
-//        Text {
-//            id: t6
-//            text: "30 minutes"
-//            width: 559
-//            height: 48
-//            y:480
-//            x:81
-//            font.pixelSize: 40
-//            font.family: "Calibri Light"
-//            font.weight: Font.Medium
-//            color: "#0B9821"
-//        }
-//        Button{
-//            id:but2
-//            width: 559
-//            height: 80
-//            Text{
-//                text: "Start the test"
-//                font.pixelSize: 40
-//                x:136.5
-//                y: 16
-//                color: "#0B9821"
-//            }
-//            x: 80
-//            y: 560
-//            background:  Rectangle{
-//                border.color: "#61F479"
-//                border.width: 1
-//                radius: 20
-//                gradient: Gradient{
-//                    GradientStop{
-//                        position: 0
-//                        color: "#C2FFCD"
-//                    }
-//                    GradientStop{
-//                        position: 1
-//                        color: "#AFFFBD"
-//                    }
-//                }
-//            }
 
-//            Image {
-//                id: img2
-//                source: "Vector.png"
-//                x:386.5
-//                y:24
-//                width: 32
-//                height: 32
-//            }
-//            MouseArea{
-//                id:mouseArea1
-//                anchors.fill: parent
-//            }
-//            states: State {
-//                name: "s2"
-//                when: mouseArea.pressed===true
-//                PropertyChanges {
-//                    target: t4
-//                    color:"green"
-//                }
-//            }
-//            transitions: [
-//                Transition {
-//                    from: ""
-//                    to: "s2"
-//                    reversible: true
-//                }
-//            ]
-//        }
-//    }
-//    Rectangle{
-//        id:r3
-//        opacity: 0
-//        Text {
-//            id: tr3
-//            text: "8%"
-//            font.pixelSize: 200
-//            font.family: "Calibri Light"
-//            font.weight: Font.Thin
-//            lineHeight: 238.67
-//            x:81
-//            y:40
-//        }
-//        Rectangle{
-//            id:rt1
-//            x:80
-//            y:283
-//            width: 559
-//            height: 342
-//            Text {
-//                id: t1r3
-//                text: "Time Pending"
-//                y:97
-//                font.pixelSize: 40
-//                font.family: "Calibri Light"
-//                font.weight: Font.Thin
-//            }
-//            Text {
-//                id: t2r3
-//                text: "23:46:37"
-//                y:145
-//                font.pixelSize: 100
-//                font.family: "Calibri Light"
-//                font.weight: Font.Thin
-//                color: "#0B9821"
-//            }
-//        }
-//        Rectangle{
-//            id:progress
-//            width:559
-//            height: 80
-//            y:560
-//            x:80
-//            border.color: "#61F479"
-//            border.width: 1
-//            radius: 20
-//            gradient: Gradient{
-//                GradientStop{
-//                    position: 0
-//                    color: "#C4FFCE"
-//                }
-//                GradientStop{
-//                    position: 1
-//                    color: "#A8FFB7"
-//                }
-//            }
-
-
-//            layer.effect: OpacityMask {
-//                maskSource: Item {
-//                    width: rect.width
-//                    height: rect.height
-//                    Rectangle {
-//                        anchors.centerIn: parent
-//                        width: rect.adapt ? rect.width : Math.min(rect.width, rect.height)
-//                        height: rect.adapt ? rect.height : width
-//                        radius: 30
-//                    }
-//                }
-//            }
-
-//            Rectangle{
-//                width:95
-//                height: progress.height
-//                border.color: "#61F479"
-//                border.width: 1
-//                gradient: Gradient{
-//                    GradientStop{
-//                        position: 0
-//                        color: "#0B9821"
-//                    }
-//                    GradientStop{
-//                        position: 1
-//                        color: "#1A8502"
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
